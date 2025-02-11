@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="main-content">
+      <header>
+        <div class="main_header">
+          <div>
+            <h1>Clubhouse XD</h1>
+          </div>
+
+          <div class="nav_bar"></div>
+        </div>
+      </header>
+      <main>
+        <div>
+          <section class="signUpSectionForm">
+            <% if (locals.currentUser) { %>
+            <div>
+              <div class="username"><h2><%= user.username %></h2></div>
+              <div class="username">
+                <a href="/log-out" class="log_out_link">log out</a>
+                <h2><%= user.first_name %> <%= user.last_name %></h2>
+              </div>
+              <!-- show the client the content if logged in -->
+              <div class="user_content">
+                <div class="create_message_link">
+                  <p>
+                    Create Message <a href="/create-message">Here</a> or
+                    <a href="/secret-code">Enter Secret Code</a>
+                  </p>
+                </div>
+                <%- include('../listOfMessagesView/listOfMessages', { messages
+                }) %>
+              </div>
+              <% } else { %>
+              <!-- show user the errors -->
+
+              <div class="error_signing_up">
+                <% if (errors) { %>
+                <ul>
+                  <% errors.map(({ msg }) => { %>
+                  <li><%= msg %></li>
+                  <% }) %>
+                </ul>
+                <% } %>
+              </div>
+
+              <p>log in <a href="log-in">here</a></p>
+              <%- include('signUpView/signUp') %> <% } %>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
