@@ -39,6 +39,8 @@ app.use(passport.session());
 passport.use(localStrategy.strategy);
 
 app.use((req, res, next) => {
+  // display user error when logging in
+  res.locals.msg = req.session.messages;
   res.locals.currentUser = req.user;
   next();
 });
