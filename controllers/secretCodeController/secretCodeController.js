@@ -5,7 +5,11 @@ const bcryptjs = require("bcryptjs");
 require("dotenv").config();
 
 exports.getSecretCodePage = (req, res) => {
-  res.render("secretCodeView/secretCode", { errors: [] });
+  if (req.user) {
+    return res.render("secretCodeView/secretCode", { errors: [] });
+  }
+
+  res.redirect("/");
 };
 
 const secretPassword = "should not be empty";
