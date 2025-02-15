@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Members Only</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <div class="main-content">
@@ -13,47 +14,46 @@
           <div>
             <h1>Clubhouse XD</h1>
           </div>
-
-          <div class="nav_bar"></div>
+          <% if (locals.currentUser) { %>
+          <div class="username_and_logout">
+            <h2 class="username"><%= currentUser.username %></h2>
+            <h2 class="full_name">
+              <%= currentUser.first_name %> <%= currentUser.last_name %>
+            </h2>
+            <a href="/log-out" class="log_out_link">log out</a>
+            <a href="/secret-code" class="secret_code_link"
+              >Enter Secret Code</a
+            >
+          </div>
+          <% } %>
         </div>
       </header>
       <main>
         <div>
           <section class="signUpSectionForm">
             <% if (locals.currentUser) { %>
-            <div>
-              <div class="username"><h2><%= user.username %></h2></div>
-              <div class="username">
-                <a href="/log-out" class="log_out_link">log out</a>
-                <h2><%= user.first_name %> <%= user.last_name %></h2>
-              </div>
-              <!-- show the client the content if logged in -->
-              <div class="user_content">
-                <div class="create_message_link">
-                  <p>
-                    Create Message <a href="/create-message">Here</a> or
-                    <a href="/secret-code">Enter Secret Code</a>
-                  </p>
-                </div>
-                <%- include('../listOfMessagesView/listOfMessages', { messages
-                }) %>
-              </div>
-              <% } else { %>
-              <!-- show user the errors -->
+            <!-- show the client the content if logged in -->
 
-              <div class="error_signing_up">
-                <% if (errors) { %>
-                <ul>
-                  <% errors.map(({ msg }) => { %>
-                  <li><%= msg %></li>
-                  <% }) %>
-                </ul>
-                <% } %>
+            <div class="create_message_form">
+              <div class="create_message_button">
+                <button class="toggle_create_message">Create Message</button>
               </div>
-
-              <p>log in <a href="log-in">here</a></p>
-              <%- include('signUpView/signUp') %> <% } %>
+              <%- include('../createMessageView/createMessage', { errors }) %>
             </div>
+            <div class="user_content">
+              <%- include('../listOfMessagesView/listOfMessages', { messages })
+              %>
+            </div>
+            <% } else { %>
+            <!-- show user the errors -->
+
+            <div class="error_signing_up">
+              <% if (errors) { %> <% errors.map(({ msg }) => { %>
+              <p><%= msg %></p>
+              <% }) %> <% } %>
+            </div>
+
+            <%- include('signUpView/signUp') %> <% } %>
           </section>
         </div>
       </main>
