@@ -1,0 +1,45 @@
+<div class="create_message_wrapper">
+  <div class="creating_message_errors">
+    <% if (errors) { %> <% errors.map(({ msg }) => { %>
+    <p><%= msg %></p>
+    <% }) %> <% } %>
+  </div>
+  <dialog class="create_message">
+    <button class="close_modal">close</button>
+    <form action="/create-message" method="post">
+      <div class="inputs">
+        <ul class="div_input">
+          <li><h2>Create Message</h2></li>
+          <li>
+            <label for="message_title">Title: </label><br /><input
+              type="text"
+              id="message_title"
+              name="message_title"
+            />
+          </li>
+          <li>
+            <label for="message">Message: </label>
+            <br /><textarea
+              name="message"
+              id="message"
+              cols="10"
+              rows="1"
+              minlength="3"
+              maxlength="255"
+              draggable="false"
+            ></textarea>
+          </li>
+          <li>
+            <h3 class="secret_code">
+              Want to see authors ? Fill secret code
+              <a href="/secret-code">here</a>
+            </h3>
+          </li>
+          <li>
+            <button type="submit" class="send_message">Send XD</button>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </dialog>
+</div>
