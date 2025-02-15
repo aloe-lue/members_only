@@ -1,0 +1,43 @@
+<div class="list_of_messages">
+  <ul>
+    <% messages.map(({ message_id, title, message, created_time, first_name,
+    last_name, user_id }) => { %>
+
+    <li class="<%= user_id === currentUser.id ? 'user' : 'others' %>">
+      <div class="div_of_message">
+        <!-- that is the admin -->
+        <!-- enable user of admin == true to delete user message -->
+        <% if (currentUser.membership_status == 1) { %>
+        <div class="delete_user_message">
+          <form
+            class="delete_message"
+            action="/delete-message/<%= message_id %>"
+            method="post"
+          >
+            <button type="submit" class="delete_button">x</button>
+          </form>
+        </div>
+        <% } %>
+        <div class="username_and_timestamp">
+          <div class="full_name">
+            <!-- show the client name if they are either leader or an admin -->
+            <% if (currentUser.membership_status <= 2) { %>
+            <!-- show the user  -->
+            <%= first_name %> <%= last_name %>
+            <!-- otherwise show anonymouse but only show the user the full name if user is user -->
+            <% } else { %>
+            <!-- show user full name -->
+            <% if (currentUser.id == user_id) { %> <%= first_name %> <%=
+            last_name %> <% } else { %> anonymous <% } %> <% } %>
+          </div>
+          <div class="timestamp"><%= created_time %></div>
+        </div>
+        <div class="title_and_message">
+          <div class="title"><p><%= title %></p></div>
+          <div class="message"><p><%= message %></p></div>
+        </div>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+</div>
