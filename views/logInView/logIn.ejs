@@ -28,10 +28,13 @@
             <div>You are logged in</div>
             <% } else { %>
 
-            <div>
+            <div class="log_in_form">
               <form action="/log-in" method="post">
                 <div>
                   <ul class="log_in_form">
+                    <li>
+                      <h2>Log In</h2>
+                    </li>
                     <li>
                       <label for="username">Username: </label
                       ><input
@@ -39,11 +42,22 @@
                         name="username"
                         id="username"
                         placeholder="axe123"
+                        required
                       />
                     </li>
                     <li>
                       <label for="password">Password: </label
-                      ><input type="password" name="password" id="password" />
+                      ><input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <h3 class="dont_account">
+                        Don't have account? Sign up <a href="/">here</a>
+                      </h3>
                     </li>
                     <li>
                       <button class="log_in" type="submit">Sign Up</button>
