@@ -55,7 +55,7 @@ app.use("/secret-code", secretCodeRouter);
 app.use("/log-out", logOutRouter);
 app.use("*", errorRouter);
 app.use((err, req, res, next) => {
-  console.err(err);
+  console.error(err);
   res.status(500).send("SEMETHENG WENT WRENG!! ERR!!");
 });
 
