@@ -1,0 +1,390 @@
+/* /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "playfair_display_italic";
+  src: url("../fonts/playfairDisplayWebkit/playfairdisplay-regular-webfont.woff")
+      format("woff"),
+    url("../fonts/playfairDisplayWebkit/playfairdisplay-regular-webfont.woff2")
+      format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  /* outline: 1px solid #00000030; */
+  /* background-color: #00000010; */
+  --fallback-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --playfair-italic-with-fallback: "playfair_display_italic",
+    var(--fallback-font);
+  --common-color: #4c3c3c;
+  --common-line-height: 150%;
+  --common-letter-spacing: 1px;
+}
+
+header,
+section.signUpSectionForm,
+div.create_message_wrapper,
+div.sign_up_container,
+div.log_in_form,
+div.create_message_form,
+div.list_of_messages,
+div.secret_code_form_container,
+ul.signUpForm,
+ul.log_in_form,
+ul.div_input,
+ul.secret_code_inputs {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+div.sign_up_container,
+div.log_in_form,
+div.create_message_form,
+div.list_of_messages,
+div.secret_code_form_container {
+  max-width: 730px;
+  padding: 1rem;
+}
+
+ul.signUpForm,
+ul.log_in_form,
+ul.div_input,
+ul.secret_code_inputs {
+  max-width: 432px;
+  border: 1px solid #797979;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+ul.div_input {
+  border: 0;
+}
+
+ul.signUpForm li,
+ul.log_in_form li,
+ul.div_input li,
+ul.secret_code_inputs li {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+li.user,
+li.others {
+  margin: 0 auto 12px auto;
+  border: 1px solid #797979;
+  border-radius: 0.75rem;
+}
+
+li.user {
+  border-right: 10px solid #434343;
+}
+
+li.others {
+  border-left: 10px solid #797979;
+}
+
+form.delete_message,
+button.close_modal {
+  text-align: end;
+  margin: 2.3px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--playfair-italic-with-fallback);
+  letter-spacing: 1px;
+  line-height: 150%;
+  font-size: clamp(12px, 4vw, 14px);
+}
+h1 {
+  font-size: clamp(14px, 5vw, 24px);
+  text-align: center;
+}
+h2,
+a.log_out_link,
+div.create_message_link {
+  font-size: clamp(14px, 5vw, 18px);
+  padding-left: 43px;
+}
+p,
+div.full_name,
+div.timestamp,
+button.close_modal {
+  line-height: 150%;
+  font-size: clamp(12px, 5vw, 14px);
+  word-break: break-all;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+button.close_modal {
+  text-align: end;
+}
+
+div.timestamp {
+  font-family: monospace, var(--fallback-font);
+}
+
+h2.username,
+a.log_out_link {
+  padding: 4px 6px;
+}
+
+input[type="text"],
+input[type="password"],
+label,
+textarea {
+  appearance: none;
+  border-radius: 0.75rem;
+  border: 1px solid #797979;
+  padding: 0.5rem;
+  font-size: clamp(12px, 5vw, 14px);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  color: #434343;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="radio"] {
+  top: 1px;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  outline: 1px solid #797979;
+  outline-offset: 1px;
+  border-radius: 50%;
+  position: relative;
+  padding: 0.5rem;
+  top: 5px;
+}
+
+input[type="radio"]:checked {
+  background-color: #797979;
+}
+
+label,
+h3.already_logged,
+h3.dont_account,
+h3.secret_code {
+  padding-left: 25px;
+  border: 0;
+}
+.username_and_timestamp,
+.title_and_message {
+  padding: 5px;
+}
+
+h2.full_name,
+h2.username,
+a.log_out_link,
+a.secret_code_link {
+  padding: 4px 0.5rem;
+}
+
+.username_and_logout,
+div.create_message_link {
+  display: flex;
+  justify-content: left;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 72px;
+  flex-wrap: wrap;
+}
+
+.title_and_message {
+  border: 0;
+}
+
+dialog.create_message {
+  border: 1px solid #797979;
+  border-radius: 0.75rem;
+}
+
+button.sign_up,
+button.log_in,
+button.send_message,
+button.delete_button,
+button.secret_code,
+button.toggle_create_message {
+  padding: 0.77rem;
+  font-size: clamp(12px, 5vw, 14px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #434343;
+  border-radius: 0.75rem;
+  border-color: #797979;
+  border-width: 1px;
+}
+button.delete_button {
+  border-radius: 0.75rem;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+.main_content_error {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #080822;
+}
+
+h1.error_status {
+  font-size: clamp(24px, 5vw, 48px);
+  font-family: monospace;
+}
+p.youre_lost {
+  font-size: clamp(14px, 5vw, 24px);
+}
+
+.main_header_content_error {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  color: #adadad;
+}
+a.go_home,
+a.log_in_hehe {
+  color: navajowhite;
+  font-size: clamp(14px, 5vw, 18px);
+  font-family: monospace;
+}
