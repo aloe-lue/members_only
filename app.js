@@ -6,7 +6,6 @@ require("dotenv").config();
 const homepageRouter = require("./routes/homepageRouter/homepageRouter");
 const signUpRouter = require("./routes/signUpRouter/signUpRouter");
 const logInRouter = require("./routes/logInRouter/logInRouter");
-const createMessageRouter = require("./routes/createMessageRouter/createMessageRouter");
 const logOutRouter = require("./routes/logOutRouter/logOutRouter");
 const secretCodeRouter = require("./routes/secretCodeRouter/secretCodeRouter");
 
@@ -52,7 +51,6 @@ app.use("/", homepageRouter);
 app.use("/sign-up", signUpRouter);
 app.use("/log-in", logInRouter);
 app.use("/secret-code", secretCodeRouter);
-app.use("/create-message", createMessageRouter);
 app.use("/log-out", logOutRouter);
 
 const PORT = process.env.PORT || 3000;
