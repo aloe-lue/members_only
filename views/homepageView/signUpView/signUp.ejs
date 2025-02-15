@@ -2,7 +2,6 @@
   <div class="sign_up_container">
     <ul class="signUpForm">
       <li>
-        <h2>Log in <a href="/log-in">here</a></h2>
         <h2>Create Account</h2>
       </li>
       <li>
@@ -12,11 +11,18 @@
           name="firstName"
           id="firstName"
           placeholder="John"
+          required
         />
       </li>
       <li>
         <label for="lastName">Last Name: </label
-        ><input type="text" name="lastName" id="lastName" placeholder="Doe" />
+        ><input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="Doe"
+          required
+        />
       </li>
       <li>
         <label for="username">Username: </label
@@ -25,15 +31,26 @@
           name="username"
           id="username"
           placeholder="axe123"
+          required
         />
       </li>
       <li>
         <label for="password">Password: </label
-        ><input type="password" name="password" id="password" />
+        ><input type="password" name="password" id="password" required />
       </li>
       <li>
         <label for="confirmPassword">Confirm Password: </label
-        ><input type="password" name="confirmPassword" id="confirmPassword" />
+        ><input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          required
+        />
+      </li>
+      <li>
+        <h3 class="already_logged">
+          Already Logged in? <a href="/log-in">Log in</a>
+        </h3>
       </li>
       <li>
         <button type="submit" class="sign_up">Sign Up</button>
