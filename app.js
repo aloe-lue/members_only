@@ -8,6 +8,7 @@ const signUpRouter = require("./routes/signUpRouter/signUpRouter");
 const logInRouter = require("./routes/logInRouter/logInRouter");
 const logOutRouter = require("./routes/logOutRouter/logOutRouter");
 const secretCodeRouter = require("./routes/secretCodeRouter/secretCodeRouter");
+const errorRouter = require("./routes/errorRouter/errorRouter");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -52,6 +53,11 @@ app.use("/sign-up", signUpRouter);
 app.use("/log-in", logInRouter);
 app.use("/secret-code", secretCodeRouter);
 app.use("/log-out", logOutRouter);
+app.use("*", errorRouter);
+app.use((err, req, res, next) => {
+  console.err(err);
+  res.status(500).send("SEMETHENG WENT WRENG!! ERR!!");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
